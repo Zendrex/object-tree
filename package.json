@@ -1,0 +1,48 @@
+{
+	"name": "@zendrex/object-tree",
+	"version": "0.1.0",
+	"description": "A library for rendering objects as colorized tree structures in the console.",
+	"author": "zendrex",
+	"license": "MIT",
+	"type": "module",
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"scripts": {
+		"check": "bunx --bun biome check",
+		"fix": "bunx --bun biome lint --write && bunx --bun biome format --write",
+		"prepare": "husky"
+	},
+	"dependencies": {
+		"chalk": "^5.6.2"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.3.10",
+		"@types/bun": "latest",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.2.7"
+	},
+	"peerDependencies": {
+		"typescript": "^5.9.3"
+	},
+	"lint-staged": {
+		"*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
+			"bun run fix"
+		]
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/zendrex/object-tree.git"
+	},
+	"bugs": {
+		"url": "https://github.com/zendrex/object-tree/issues"
+	},
+	"homepage": "https://github.com/zendrex/object-tree#readme",
+	"keywords": [
+		"typescript",
+		"object",
+		"tree",
+		"console",
+		"debug"
+	]
+}
