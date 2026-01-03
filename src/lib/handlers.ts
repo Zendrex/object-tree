@@ -1,5 +1,6 @@
-import chalk from "chalk";
 import type { Color, RenderResult, ResolvedOptions } from "./types";
+
+import chalk from "chalk";
 
 /** Colorize text if chalk supports colors */
 const colorize = (text: string, color: Color): string => {

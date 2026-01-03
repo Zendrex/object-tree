@@ -1,6 +1,8 @@
-import chalk from "chalk";
-import { renderValue } from "./handlers";
 import type { ObjectTreeOptions, ResolvedOptions } from "./types";
+
+import chalk from "chalk";
+
+import { renderValue } from "./handlers";
 
 /** Default configuration */
 const defaults: ResolvedOptions = {
