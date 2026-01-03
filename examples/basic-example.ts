@@ -56,4 +56,5 @@ const sampleData = {
 };
 
 const lines = tree.render(sampleData);
+// biome-ignore lint/suspicious/noConsole: example
 console.log(lines.join("\n"));
