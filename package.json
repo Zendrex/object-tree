@@ -9,6 +9,7 @@
 		".": "./src/index.ts"
 	},
 	"scripts": {
+		"build": "bun run scripts/build.ts",
 		"check": "bunx --bun biome check",
 		"fix": "bunx --bun biome lint --write && bunx --bun biome format --write",
 		"prepare": "husky"
