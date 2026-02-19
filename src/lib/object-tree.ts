@@ -88,7 +88,7 @@ export class ObjectTree {
 		depth: number,
 		keyLabel?: string,
 		isLast?: boolean,
-		divider = ": ",
+		divider = ": "
 	): void {
 		if (depth > this.opts.maxDepth) {
 			return;
@@ -119,7 +119,15 @@ export class ObjectTree {
 			const lastIndex = result.children.length - 1;
 
 			for (const [i, child] of result.children.entries()) {
-				this.walk(child.value, lines, childLevels, depth + 1, child.key, i === lastIndex, child.divider ?? ": ");
+				this.walk(
+					child.value,
+					lines,
+					childLevels,
+					depth + 1,
+					child.key,
+					i === lastIndex,
+					child.divider ?? ": "
+				);
 			}
 		}
 	}

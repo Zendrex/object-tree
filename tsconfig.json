@@ -21,8 +21,8 @@
 		"noImplicitOverride": true,
 
 		// Types
-		"types": ["bun-types"]
+		"types": ["bun"]
 	},
 	"include": ["src", "examples"],
-	"exclude": ["node_modules"]
+	"exclude": ["node_modules", "dist"]
 }

@@ -4,21 +4,18 @@ import type { ForegroundColorName } from "chalk";
 export type Color = ForegroundColorName;
 
 /** Options for configuring the object tree renderer */
-export type ObjectTreeOptions = {
+export interface ObjectTreeOptions {
+	/** Array options */
+	array?: {
+		maxItems?: number;
+		showLength?: boolean;
+	};
 	/** Characters used for tree connectors */
 	chars?: {
 		tee?: string;
 		ell?: string;
 		pipe?: string;
 	};
-	/** Color for tree connector characters */
-	connectorColor?: Color;
-	/** Indentation string per level */
-	indent?: string;
-	/** Maximum depth to render */
-	maxDepth?: number;
-	/** Whether to show the root container */
-	showRoot?: boolean;
 	/** Colors for different value types */
 	colors?: {
 		string?: Color;
@@ -38,16 +35,22 @@ export type ObjectTreeOptions = {
 		map?: Color;
 		instance?: Color;
 	};
-	/** String options */
-	string?: {
-		maxLength?: number;
-		quotes?: "single" | "double" | "none";
+	/** Color for tree connector characters */
+	connectorColor?: Color;
+	/** Date options */
+	date?: {
+		format?: "none" | "iso" | "locale";
 	};
-	/** Array options */
-	array?: {
+	/** Indentation string per level */
+	indent?: string;
+	/** Map options */
+	map?: {
 		maxItems?: number;
-		showLength?: boolean;
+		showSize?: boolean;
+		divider?: string;
 	};
+	/** Maximum depth to render */
+	maxDepth?: number;
 	/** Object options */
 	object?: {
 		maxKeys?: number;
@@ -58,17 +61,14 @@ export type ObjectTreeOptions = {
 		maxItems?: number;
 		showSize?: boolean;
 	};
-	/** Map options */
-	map?: {
-		maxItems?: number;
-		showSize?: boolean;
-		divider?: string;
+	/** Whether to show the root container */
+	showRoot?: boolean;
+	/** String options */
+	string?: {
+		maxLength?: number;
+		quotes?: "single" | "double" | "none";
 	};
-	/** Date options */
-	date?: {
-		format?: "none" | "iso" | "locale";
-	};
-};
+}
 
 /** Resolved options with all defaults applied */
 export type ResolvedOptions = Required<{
@@ -76,7 +76,7 @@ export type ResolvedOptions = Required<{
 }>;
 
 /** Result from rendering a value */
-export type RenderResult = {
-	header: string;
+export interface RenderResult {
 	children?: { key: string; value: unknown; divider?: string }[];
-};
+	header: string;
+}

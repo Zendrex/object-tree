@@ -1,8 +1,6 @@
-# object-tree
+# @zendrex/object-tree
 
 Render objects as colorized tree structures in the console, with customizable formatting and type-aware styling.
-
-**NOTE:** This package is currently **not** available on any registry.
 
 ## Example
 
