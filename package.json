@@ -55,7 +55,7 @@
 		"ultracite": "^7.2.3"
 	},
 	"peerDependencies": {
-		"typescript": "^5.9.3"
+		"typescript": "^5.9.3 || ^6.0.0"
 	},
 	"lint-staged": {
 		"*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
