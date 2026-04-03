@@ -4,6 +4,12 @@
 
 ### Patch Changes
 
+- [`706dfe4`](https://github.com/Zendrex/object-tree/commit/706dfe4666f419c1509c3e35b14399290e218af7) Thanks [@Zendrex](https://github.com/Zendrex)! - Fix package.json exports to match tsdown output filenames (.mjs/.cjs/.d.mts/.d.cts)
+
+## 0.2.1
+
+### Patch Changes
+
 - Switch build tool from tsup to tsdown
 
 ## 0.2.0
