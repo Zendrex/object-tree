@@ -1,5 +1,11 @@
 # @zendrex/object-tree
 
+## 0.2.1
+
+### Patch Changes
+
+- Switch build tool from tsup to tsdown
+
 ## 0.2.0
 
 ### Minor Changes

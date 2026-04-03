@@ -1,6 +1,6 @@
 {
 	"name": "@zendrex/object-tree",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"description": "A library for rendering objects as colorized tree structures in the console.",
 	"author": "zendrex",
 	"license": "MIT",
@@ -30,7 +30,7 @@
 		"access": "public"
 	},
 	"scripts": {
-		"build": "tsup",
+		"build": "tsdown",
 		"check": "bunx ultracite check",
 		"fix": "bunx ultracite fix",
 		"check-types": "tsc -b",
@@ -51,7 +51,7 @@
 		"bun-types": "latest",
 		"husky": "^9.1.7",
 		"lint-staged": "^16.4.0",
-		"tsup": "^8.5.1",
+		"tsdown": "^0.21.7",
 		"typescript": "^6.0.2",
 		"ultracite": "^7.4.2"
 	},
