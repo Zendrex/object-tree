@@ -15,6 +15,7 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+      id-token: write
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/ci-setup
@@ -51,11 +52,15 @@ jobs:
         if: steps.release-check.outputs.should-release == 'true'
         run: bun run build
 
+      - uses: actions/setup-node@v4
+        if: steps.release-check.outputs.should-release == 'true'
+        with:
+          node-version: lts/*
+          registry-url: https://registry.npmjs.org
+
       - name: Publish to npm
         if: steps.release-check.outputs.should-release == 'true'
-        run: bun publish --access public --ignore-scripts
-        env:
-          NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --provenance --access public
 
       - name: Create GitHub Release
         if: steps.release-check.outputs.should-release == 'true'
