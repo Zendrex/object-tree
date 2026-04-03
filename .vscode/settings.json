@@ -8,13 +8,6 @@
 		"source.fixAll.biome": "explicit"
 	},
 
-	// Hidden
-	"files.exclude": {
-		"**/node_modules": true,
-		"**/.husky": true,
-		"**/.git": true
-	},
-
 	// Language Specific / Biome
 	"[javascript]": {
 		"editor.defaultFormatter": "biomejs.biome"
@@ -23,6 +16,9 @@
 		"editor.defaultFormatter": "biomejs.biome"
 	},
 	"[json]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[markdown]": {
 		"editor.defaultFormatter": "biomejs.biome"
 	},
 
