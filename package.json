@@ -62,12 +62,12 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/zendrex/object-tree.git"
+		"url": "git+https://github.com/Zendrex/object-tree.git"
 	},
 	"bugs": {
-		"url": "https://github.com/zendrex/object-tree/issues"
+		"url": "https://github.com/Zendrex/object-tree/issues"
 	},
-	"homepage": "https://github.com/zendrex/object-tree#readme",
+	"homepage": "https://github.com/Zendrex/object-tree#readme",
 	"keywords": [
 		"typescript",
 		"object",
