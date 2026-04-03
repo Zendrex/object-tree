@@ -53,11 +53,9 @@ jobs:
 
       - name: Publish to npm
         if: steps.release-check.outputs.should-release == 'true'
-        run: |
-          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-          bun publish --access public --ignore-scripts
+        run: bun publish --access public --ignore-scripts
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create GitHub Release
         if: steps.release-check.outputs.should-release == 'true'
