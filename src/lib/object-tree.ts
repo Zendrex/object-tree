@@ -1,13 +1,10 @@
 import type { ObjectTreeOptions, ResolvedOptions } from "./types";
 
-import chalk from "chalk";
-
-import { renderValue } from "./handlers";
+import { colorize, renderValue } from "./handlers";
 import { resolveOptions } from "./options";
 
 /** Colorize connector character */
-const connector = (char: string, opts: ResolvedOptions): string =>
-	chalk.level > 0 ? chalk[opts.connectorColor](char) : char;
+const connector = (char: string, opts: ResolvedOptions): string => colorize(char, opts.connectorColor);
 
 /**
  * Render an object as a colorized tree structure for console output.
@@ -50,7 +47,7 @@ export class ObjectTree {
 		if (typeof value === "string" && value.startsWith("+") && value.includes("more")) {
 			const prefix = this.buildPrefix(levels, isLast);
 			const label = keyLabel === undefined ? "" : `${keyLabel}${divider}`;
-			lines.push(`${prefix}${label}${chalk.level > 0 ? chalk.gray(value) : value}`);
+			lines.push(`${prefix}${label}${colorize(value, "gray")}`);
 			return;
 		}
 

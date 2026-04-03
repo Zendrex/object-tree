@@ -1,14 +1,22 @@
 import type { Color, RenderResult, ResolvedOptions } from "./types";
 
-import chalk from "chalk";
+import pc from "picocolors";
 
-/** Colorize text if chalk supports colors */
-const colorize = (text: string, color: Color): string => {
-	if (chalk.level > 0) {
-		return chalk[color](text);
-	}
-	return text;
+/** Map of color names to picocolors formatters */
+const colorMap: Record<Color, (text: string) => string> = {
+	black: pc.black,
+	red: pc.red,
+	green: pc.green,
+	yellow: pc.yellow,
+	blue: pc.blue,
+	magenta: pc.magenta,
+	cyan: pc.cyan,
+	white: pc.white,
+	gray: pc.gray,
 };
+
+/** Colorize text using the named color */
+export const colorize = (text: string, color: Color): string => colorMap[color](text);
 
 /** Check if a value is a plain object (not a class instance) */
 const isPlainObject = (value: unknown): value is Record<string, unknown> => {

@@ -1,7 +1,5 @@
-import type { ForegroundColorName } from "chalk";
-
-/** Color name from chalk's foreground colors */
-export type Color = ForegroundColorName;
+/** Supported foreground color names */
+export type Color = "black" | "red" | "green" | "yellow" | "blue" | "magenta" | "cyan" | "white" | "gray";
 
 /** Options for configuring the object tree renderer */
 export interface ObjectTreeOptions {
