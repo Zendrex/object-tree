@@ -49,7 +49,7 @@ export class ObjectTree {
 		// Handle truncation markers
 		if (typeof value === "string" && value.startsWith("+") && value.includes("more")) {
 			const prefix = this.buildPrefix(levels, isLast);
-			const label = keyLabel !== undefined ? `${keyLabel}${divider}` : "";
+			const label = keyLabel === undefined ? "" : `${keyLabel}${divider}`;
 			lines.push(`${prefix}${label}${chalk.level > 0 ? chalk.gray(value) : value}`);
 			return;
 		}
