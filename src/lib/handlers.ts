@@ -1,6 +1,6 @@
-import type { Color, RenderResult, ResolvedOptions } from "./types";
-
 import pc from "picocolors";
+
+import type { Color, RenderResult, ResolvedOptions } from "./types";
 
 /** Map of color names to picocolors formatters */
 const colorMap: Record<Color, (text: string) => string> = {

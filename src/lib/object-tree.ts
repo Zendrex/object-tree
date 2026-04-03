@@ -1,7 +1,6 @@
-import type { ObjectTreeOptions, ResolvedOptions } from "./types";
-
 import { colorize, renderValue } from "./handlers";
 import { resolveOptions } from "./options";
+import type { ObjectTreeOptions, ResolvedOptions } from "./types";
 
 /** Colorize connector character */
 const connector = (char: string, opts: ResolvedOptions): string => colorize(char, opts.connectorColor);
