@@ -52,7 +52,7 @@ jobs:
         if: steps.release-check.outputs.should-release == 'true'
         run: bun run build
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         if: steps.release-check.outputs.should-release == 'true'
         with:
           node-version: lts/*
