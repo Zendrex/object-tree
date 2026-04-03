@@ -1,5 +1,11 @@
 # @zendrex/object-tree
 
+## 0.2.2
+
+### Patch Changes
+
+- [`d0368f8`](https://github.com/Zendrex/object-tree/commit/d0368f8144bde7dddb561c1ca04c2988214d4253) Thanks [@Zendrex](https://github.com/Zendrex)! - Replace chalk with picocolors for a smaller, faster color dependency
+
 ## 0.2.1
 
 ### Patch Changes
