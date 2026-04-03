@@ -31,8 +31,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create GitHub Release
-        id: github-release
+      - name: Check if release needed
+        id: release-check
         if: steps.changesets.outputs.hasChangesets == 'false'
         run: |
           VERSION=$(jq -r '.version' package.json)
@@ -40,23 +40,31 @@ jobs:
 
           if git ls-remote --tags origin "$TAG" | grep -q "$TAG"; then
             echo "Tag $TAG already exists on remote, skipping"
-            echo "released=false" >> "$GITHUB_OUTPUT"
+            echo "should-release=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
-          git tag "$TAG"
-          git push origin "$TAG"
-          gh release create "$TAG" --generate-notes --title "$TAG"
-          echo "released=true" >> "$GITHUB_OUTPUT"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "should-release=true" >> "$GITHUB_OUTPUT"
 
       - name: Build
-        if: steps.github-release.outputs.released == 'true'
+        if: steps.release-check.outputs.should-release == 'true'
         run: bun run build
 
       - name: Publish to npm
-        if: steps.github-release.outputs.released == 'true'
-        run: bun publish --access public --ignore-scripts
+        if: steps.release-check.outputs.should-release == 'true'
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+          bun publish --access public --ignore-scripts
         env:
-          NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create GitHub Release
+        if: steps.release-check.outputs.should-release == 'true'
+        run: |
+          TAG="${{ steps.release-check.outputs.tag }}"
+          git tag "$TAG"
+          git push origin "$TAG"
+          gh release create "$TAG" --generate-notes --title "$TAG"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
