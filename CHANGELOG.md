@@ -1,5 +1,11 @@
 # @zendrex/object-tree
 
+## 0.2.0
+
+### Minor Changes
+
+- [`c8dddde`](https://github.com/Zendrex/object-tree/commit/c8ddddef9f467eef57684b625bcd511bcb1e2571) Thanks [@Zendrex](https://github.com/Zendrex)! - Export `renderValue`, `resolveOptions`, and `ResolvedOptions` from the package entry point to allow low-level rendering without constructing an `ObjectTree` instance.
+
 ## 0.1.1
 
 ### Patch Changes
