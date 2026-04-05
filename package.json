@@ -35,7 +35,7 @@
 		"check-types": "tsc -b",
 		"changeset": "changeset",
 		"version": "changeset version",
-		"prepare": "husky",
+		"prepare": "lefthook install",
 		"clean": "git clean -xdf dist node_modules"
 	},
 	"dependencies": {
@@ -48,16 +48,10 @@
 		"@swc/core": "^1.15.21",
 		"@types/bun": "latest",
 		"bun-types": "latest",
-		"husky": "^9.1.7",
-		"lint-staged": "^16.4.0",
+		"lefthook": "^1.11.13",
 		"tsdown": "^0.21.7",
 		"typescript": "^6.0.2",
 		"ultracite": "^7.4.2"
-	},
-	"lint-staged": {
-		"*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
-			"bunx ultracite fix"
-		]
 	},
 	"repository": {
 		"type": "git",
