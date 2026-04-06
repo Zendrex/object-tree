@@ -48,7 +48,7 @@
 		"@swc/core": "^1.15.21",
 		"@types/bun": "latest",
 		"bun-types": "latest",
-		"lefthook": "^1.11.13",
+		"lefthook": "^2.0.0",
 		"tsdown": "^0.21.7",
 		"typescript": "^6.0.2",
 		"ultracite": "^7.4.2"
